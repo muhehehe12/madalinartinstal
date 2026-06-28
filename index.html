@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Madalin Art Instal Pitești | Climatizare, Termice și Sanitare</title>
+    <style>
+        /* RESETARE ȘI VARIABILE */
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', BlinkMacSystemFont, Roboto, sans-serif; }
+        
+        :root {
+            --bg-main: #0f172a; /* Slate Dark */
+            --bg-card: #1e293b; /* Slate Lighter */
+            --accent-cold: #0ea5e9; /* Sky Blue */
+            --accent-warm: #f97316; /* Orange */
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-light);
+            line-height: 1.6;
+            padding-bottom: 90px;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* BARA DE NAVIGARE */
+        .navbar {
+            background: rgba(15, 23, 42, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .logo span.cold { color: var(--accent-cold); }
+        .logo span.warm { color: var(--accent-warm); }
+        
+        .nav-cta {
+            background: linear-gradient(135deg, var(--accent-cold), var(--accent-warm));
+            color: #fff;
+            padding: 0.6rem 1.4rem;
+            border-radius: 4px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
+        }
+
+        /* SECȚIUNEA HERO */
+        .hero {
+            padding: 7rem 2rem;
+            text-align: center;
+            background: radial-gradient(circle at top, #1e293b 0%, var(--bg-main) 80%);
+            position: relative;
+        }
+        
+        .hero-badge {
+            background: rgba(14, 165, 233, 0.1);
+            color: var(--accent-cold);
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(14, 165, 233, 0.2);
+        }
+        
+        .hero h1 {
+            font-size: 3.6rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+        
+        .hero h1 span {
+            background: linear-gradient(to right, var(--accent-cold), var(--accent-warm));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto 2.5rem auto;
+        }
+        
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: var(--accent-cold);
+            color: #fff;
+        }
+        
+        .btn-primary:hover {
+            background: #0284c7;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-light);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--accent-warm);
+            color: var(--accent-warm);
+            transform: translateY(-2px);
+        }
+
+        /* BARA DE STANDARDE / GARANȚII */
+        .metrics-bar {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 2.5rem 2rem;
+        }
+        
+        .metrics-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .metric-card h3 {
+            font-size: 1.8rem;
+            color: var(--text-light);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        
+        .metric-card p {
+            color: var(--accent-cold);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* GRILA DE SERVICII */
+        .services-section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .service-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .service-box h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .sb-cold { border-left: 4px solid var(--accent-cold); }
+        .sb-warm { border-left: 4px solid var(--accent-warm); }
+        .sb-neutral { border-left: 4px solid #cbd5e1; }
+        
+        .features-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+        
+        .features-list li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--text-light);
+            font-weight: bold;
+        }
+
+        /* SECȚIUNE BRANDURI & SHOWROOM */
+        .brands-showroom {
+            background: #0b1120;
+            padding: 6rem 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .bs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .brands-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .brand-tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+        
+        .showroom-info {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .showroom-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-warm);
+        }
+        
+        .showroom-info p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+        
+        .address-block {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(15, 23, 42, 0.5);
+            border-left: 3px solid var(--accent-cold);
+        }
+
+        /* WIDGET CHATBOT */
+        .chat-widget {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            z-index: 5000;
+        }
+
+        .chat-button {
+            background: var(--accent-cold);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
+            transition: 0.3s;
+        }
+
+        .chat-button:hover {
+            transform: scale(1.05);
+            background: #0284c7;
+        }
+
+        .chat-window {
+            display: none;
+            width: 340px;
+            height: 450px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: var(--bg-main);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-close {
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.2rem;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .msg {
+            max-width: 85%;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .msg.bot {
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            color: var(--text-light);
+            align-self: flex-start;
+        }
+
+        .msg.user {
+            background: var(--accent-cold);
+            color: #fff;
+            align-self: flex-end;
+        }
+
+        .chat-options {
+            padding: 12px;
+            background: rgba(15, 23, 42, 0.8);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .opt-btn {
+            background: transparent;
+            border: 1px solid var(--accent-cold);
+            color: var(--text-light);
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .opt-btn:hover {
+            background: var(--accent-cold);
+            color: #fff;
+        }
+
+        /* SUBSOL (FOOTER) */
+        footer {
+            background: var(--bg-main);
+            padding: 4rem 2rem 2rem 2rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        .footer-brand {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-meta {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* BARA FIXĂ DE CONTACT MOBIL */
+        .fixed-action-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #0b1120;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            z-index: 4999;
+            padding: 0.8rem;
+            gap: 0.8rem;
+        }
+        
+        .action-tab {
+            flex: 1;
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #fff;
+        }
+        
+        .tab-whatsapp { background: #16a34a; }
+        .tab-phone { background: var(--accent-warm); }
+
+        /* RESPONSIVITATE */
+        @media (max-width: 900px) {
+            .bs-container { grid-template-columns: 1fr; gap: 3rem; }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .services-section { padding: 4rem 1rem; }
+            .nav-cta { display: none; }
+            .chat-widget { bottom: 85px; right: 10px; }
+            .chat-window { width: 310px; height: 400px; }
+            .metrics-grid { gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGARE -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Madalin <span class="cold">Art</span> <span class="warm">Instal</span></div>
+            <a href="tel:+40762671301" class="nav-cta">076 267 1301</a>
+        </div>
+    </nav>
+
+    <!-- SECȚIUNEA PRINCIPALĂ -->
+    <header class="hero">
+        <div class="container">
+            <span class="hero-badge">Pitești și Împrejurimi</span>
+            <h1>Climatizare și Instalații <br><span>Comercializare și Montaj</span></h1>
+            <p>Vă oferim consultanță de specialitate, vânzare, instalare profesională, garanție pe lucrare și service post-garanție pentru echipamente termice, sanitare și de aer condiționat.</p>
+            <div class="hero-actions">
+                <a href="tel:+40762671301" class="btn btn-primary">Apelați Dispeceratul</a>
+                <a href="#showroom" class="btn btn-secondary">Vizitați Showroom-ul</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- STATISTICI ȘI GARANȚII -->
+    <section class="metrics-bar">
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <h3>Factură + Garanție</h3>
+                <p>Pentru Toate Lucrările</p>
+            </div>
+            <div class="metric-card">
+                <h3>Service Complet</h3>
+                <p>Consultanță și Post-Garanție</p>
+            </div>
+            <div class="metric-card">
+                <h3>Showroom Fizic</h3>
+                <p>Prezentare și Vânzare</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTOFOLIU DE SERVICII -->
+    <section class="services-section">
+        <div class="section-header">
+            <h2>Gama de Specializări</h2>
+            <p>Soluții tehnice complete executate cu profesionalism.</p>
+        </div>
+        
+        <div class="services-grid">
+            <!-- CLIMATIZARE -->
+            <div class="service-box sb-cold">
+                <h3>Sisteme de Climatizare</h3>
+                <ul class="features-list">
+                    <li>Montaj aer condiționat (orice capacitate)</li>
+                    <li>Încărcare cu freon și igienizare</li>
+                    <li>Comercializare unități multibrand</li>
+                    <li>Service și intervenții rapide</li>
+                </ul>
+            </div>
+
+            <!-- TERMICE -->
+            <div class="service-box sb-warm">
+                <h3>Instalații Termice</h3>
+                <ul class="features-list">
+                    <li>Montaj și verificări centrale termice</li>
+                    <li>Instalare pompe de căldură</li>
+                    <li>Încălzire în pardoseală</li>
+                    <li>Montaj calorifere și boilere pe lemn/electrice</li>
+                </ul>
+            </div>
+
+            <!-- SANITARE -->
+            <div class="service-box sb-neutral">
+                <h3>Instalații Sanitare</h3>
+                <ul class="features-list">
+                    <li>Montaj obiecte sanitare complexe</li>
+                    <li>Înlocuire baterii chiuvetă și reductoare apă</li>
+                    <li>Reparații țevi și rețele de canalizare</li>
+                    <li>Instalare și calibrare hidrofoare</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- BRANDURI ȘI SHOWROOM -->
+    <section id="showroom" class="brands-showroom">
+        <div class="bs-container">
+            <div>
+                <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 1rem;">Echipamente de Top</h2>
+                <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">
+                    Comercializăm și montăm o gamă vastă de aparate de aer condiționat și sisteme termice. Ne asigurăm că beneficiați de eficiență energetică maximă, lucrând doar cu producători consacrați.
+                </p>
+                <div class="brands-list">
+                    <span class="brand-tag">Daikin</span>
+                    <span class="brand-tag">Hitachi</span>
+                    <span class="brand-tag">Gree</span>
+                    <span class="brand-tag">Mitsubishi Heavy</span>
+                    <span class="brand-tag">Yamato</span>
+                    <span class="brand-tag">Goldsense</span>
+                    <span class="brand-tag">MDV</span>
+                </div>
+            </div>
+            
+            <div class="showroom-info">
+                <h3>Vizitați Showroom-ul Nostru</h3>
+                <p>Pentru a vă convinge de calitatea echipamentelor și pentru a primi consultanță directă, vă așteptăm la locația noastră fizică.</p>
+                
+                <div class="address-block">
+                    <strong style="color: #fff; font-size: 1.1rem; display: block; margin-bottom: 0.5rem;">Madalin Art Instal</strong>
+                    <p style="margin: 0;">Pitești, Județul Argeș<br>
+                    Bd. Nicolae Bălcescu, Bl. S5, Parter<br>
+                    Zona Rolast - Lisa Draxlmaier</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHATBOT INTERACTIV (FĂRĂ EMOJI) -->
+    <div class="chat-widget">
+        <button class="chat-button" id="chatBtn" onclick="toggleChat()">Asistență Online</button>
+        <div class="chat-window" id="chatWin">
+            <div class="chat-header">
+                <span>Asistent Madalin Art</span>
+                <button class="chat-close" onclick="toggleChat()">X</button>
+            </div>
+            <div class="chat-messages" id="chatMsgs">
+                <div class="msg bot">Bună ziua! Cu ce vă pot ajuta? Vă rog să selectați o categorie pentru a primi informații.</div>
+            </div>
+            <div class="chat-options" id="chatOpts">
+                <button class="opt-btn" onclick="botReply('ac')">Aer Condiționat</button>
+                <button class="opt-btn" onclick="botReply('termice')">Centrale și Termice</button>
+                <button class="opt-btn" onclick="botReply('sanitare')">Sanitare</button>
+                <button class="opt-btn" onclick="botReply('locatie')">Adresă Showroom</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SUBSOL -->
+    <footer>
+        <div class="footer-brand">Madalin Art Instal</div>
+        <p>Servicii Profesionale: Climatizare, Încălzire și Instalații Sanitare.</p>
+        <p style="margin-top: 0.5rem;">Telefon: 076 267 1301</p>
+        <div class="footer-meta">
+            &copy; 2026 Madalin Art Instal Pitești. Toate drepturile rezervate. Oferim factură și garanție.
+        </div>
+    </footer>
+
+    <!-- BUTOANE MOBIL -->
+    <div class="fixed-action-bar">
+        <a href="tel:+40762671301" class="action-tab tab-phone">Sună la 076 267 1301</a>
+        <a href="https://wa.me/40762671301" class="action-tab tab-whatsapp" target="_blank" rel="noopener">Mesaj WhatsApp</a>
+    </div>
+
+    <!-- SCRIPT CHATBOT -->
+    <script>
+        function toggleChat() {
+            var win = document.getElementById('chatWin');
+            var btn = document.getElementById('chatBtn');
+            if(win.style.display === 'none' || win.style.display === '') {
+                win.style.display = 'flex';
+                btn.style.display = 'none';
+            } else {
+                win.style.display = 'none';
+                btn.style.display = 'block';
+            }
+        }
+
+        function botReply(type) {
+            var msgsContainer = document.getElementById('chatMsgs');
+            var userText = "";
+            var botText = "";
+
+            if(type === 'ac') {
+                userText = "Doresc informații despre aer condiționat.";
+                botText = "Comercializăm și montăm aparate precum Daikin, Gree, Hitachi, Mitsubishi Heavy. Asigurăm montaj profesional, încărcare cu freon, factură și garanție.";
+            } else if(type === 'termice') {
+                userText = "Mă interesează instalațiile termice.";
+                botText = "Realizăm montaj și verificări pentru centrale termice, instalăm pompe de căldură, încălzire în pardoseală și calorifere.";
+            } else if(type === 'sanitare') {
+                userText = "Oferiți și servicii de instalații sanitare?";
+                botText = "Da, executăm montaj pentru obiecte sanitare, hidrofoare, reparații țevi, canalizări și înlocuiri de baterii sau reductoare.";
+            } else if(type === 'locatie') {
+                userText = "Unde vă pot găsi?";
+                botText = "Vă așteptăm în showroom-ul nostru din Pitești: Bd. Nicolae Bălcescu, Bloc S5, Parter, zona Rolast - Lisa Draxlmaier. Pentru confirmare, sunați la 076 267 1301.";
+            }
+
+            var userDiv = document.createElement('div');
+            userDiv.className = "msg user";
+            userDiv.innerText = userText;
+            msgsContainer.appendChild(userDiv);
+
+            setTimeout(function(){
+                var botDiv = document.createElement('div');
+                botDiv.className = "msg bot";
+                botDiv.innerText = botText;
+                msgsContainer.appendChild(botDiv);
+                msgsContainer.scrollTop = msgsContainer.scrollHeight;
+            }, 400);
+        }
+    </script>
+</body>
+</html>
